@@ -23,8 +23,10 @@ export const useFetchGifs = ( category ) => {/* A diferencia de un "funcional co
 
   useEffect(() => {
     /* Forma 1 */
-    getGifs(category).then((newImages) => setImages(newImages))
+    getGifs(category).then((newImages) => setImages(newImages)).finally(()=>{
     setIsLoading(false)
+
+    })
     /* Forma 2-B */
     /*  getImages() */
   }, [])

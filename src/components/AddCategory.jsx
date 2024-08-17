@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import PropTypes from "prop-types";
+
 
 export const AddCategory = ({ /* onAddCategory */ onNewCategory }) => {
   const [inputValue, setInputValue] = useState('')
@@ -16,8 +18,9 @@ export const AddCategory = ({ /* onAddCategory */ onNewCategory }) => {
     if (newinputValue.length <= 1) return //caso que no se escriba nada
     console.log(newinputValue)
     /*   onAddCategory((c) => [...c,newinputValue]) */
-    onNewCategory(newinputValue)
+   
     setInputValue('')
+    onNewCategory(newinputValue)
   }
 
   /* 
@@ -26,7 +29,7 @@ va a realizar un "full refresh del navegador web", porque es el comportamiendo n
 */
 
   return (
-    <form onSubmit={onsubmit}>
+    <form onSubmit={onsubmit} aria-label='form_De_Busqueda_De_Gifs'>
       {/* Agrego el Form para detectar el Input de la tecla "ENTER" */}
       <input
         type="text"
@@ -38,4 +41,8 @@ va a realizar un "full refresh del navegador web", porque es el comportamiendo n
       />
     </form>
   )
+}
+
+AddCategory.propTypes ={
+  onNewCategory: PropTypes.func.isRequired
 }

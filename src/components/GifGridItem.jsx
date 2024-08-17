@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+// si se trabaja con vite, es necesario importar los proptypes
+
 
 export const GifGridItem = ({id,title,url}) => {
   return (
@@ -6,4 +9,11 @@ export const GifGridItem = ({id,title,url}) => {
         <p>{title}</p>
     </div>
   )
+}
+
+
+GifGridItem.prototypes = {
+  id: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }
